@@ -17,6 +17,21 @@ import Notiflix from 'notiflix';
    
   }
   
+  componentDidMount(){
+    const contacts = localStorage.getItem('contacts')
+    
+    if (contacts){
+      this.setState({contacts: JSON.parse(contacts)});
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.contacts.length!==this.state.contacts.length){
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+       
+    }
+  }
+  
   addToContact = ({ name, number })=>{
       this.setState((prev)=>{
       const flagName = prev.contacts.filter((el)=>el.name===(name.trim())).length || !name.trim();
