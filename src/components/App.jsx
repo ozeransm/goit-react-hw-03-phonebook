@@ -17,20 +17,20 @@ import Notiflix from 'notiflix';
    
   }
   
-  componentDidMount(){
-    const contacts = localStorage.getItem('contacts')
+  // componentDidMount(){
+  //   const contacts = localStorage.getItem('contacts')
     
-    if (contacts){
-      this.setState({contacts: JSON.parse(contacts)});
-    }
-  }
+  //   if (contacts){
+  //     this.setState({contacts: JSON.parse(contacts)});
+  //   }
+  // }
 
-  componentDidUpdate(prevProps, prevState){
-    if(prevState.contacts.length!==this.state.contacts.length){
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+  // componentDidUpdate(prevProps, prevState){
+  //   if(prevState.contacts.length!==this.state.contacts.length){
+  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
        
-    }
-  }
+  //   }
+  // }
   
   addToContact = ({ name, number })=>{
       this.setState((prev)=>{
